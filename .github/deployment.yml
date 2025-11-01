@@ -1,0 +1,40 @@
+name: deployment pratice
+on: push
+jobs:
+  test:
+    run-on: ubantu-latest
+    steps:
+      - name: checkout the code
+        uses: action/checkout@v3
+
+      - name: Install all dependencies
+        run: npm ci
+
+      - name: run the lint 
+        run: npm lint
+
+      - name: test the code
+        run: npm run test
+
+      
+
+  deploye:
+    needs: test
+    run-on: ubantu-latest
+    steps:
+      - name: checkout the code
+        uses: action/checkout@v3
+
+      - name: Install all dependencies
+        run: npm ci
+
+      - name: run the lint 
+        run: npm lint
+
+      - name: build the project
+        run: npm run build
+
+      - name: delpoye the project
+        run: echo "Deploying..."
+
+     
