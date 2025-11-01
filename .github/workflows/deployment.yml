@@ -2,7 +2,7 @@ name: deployment pratice
 on: push
 jobs:
   test:
-    runs-on: ubantu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout the code
         uses: action/checkout@v3
@@ -20,7 +20,7 @@ jobs:
 
   deploye:
     needs: test
-    runs-on: ubantu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout the code
         uses: action/checkout@v3
