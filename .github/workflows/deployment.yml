@@ -43,4 +43,16 @@ jobs:
       - name: delpoye the project
         run: echo "Deploying..."
 
+  download:
+    need: deploye
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the uploaded artifact
+        uses: actions/download-artifact@v6.0.0
+        with:
+          name: distribute file
+
+      - name: listout the files
+        run: ls
+
      
