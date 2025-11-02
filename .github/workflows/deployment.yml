@@ -36,6 +36,9 @@ jobs:
 
       - name: upload the build to artifact
         uses: actions/upload-artifact@v5.0.0
+        with:
+          name: distribute file
+          path: dist
 
       - name: delpoye the project
         run: echo "Deploying..."
