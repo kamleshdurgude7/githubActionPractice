@@ -7,6 +7,13 @@ jobs:
       - name: checkout the code
         uses: actions/checkout@v3
 
+      - name: cache dependencies
+        uses: actions/cache@v4.3.0
+        with:
+          path: dir=$(npm config get cache)
+          key: dependencies-node-mod-${{**/package.lock.json}}
+          
+
       - name: Install all dependencies
         run: npm ci
 
@@ -24,6 +31,12 @@ jobs:
     steps:
       - name: checkout the code
         uses: actions/checkout@v3
+
+      - name: cache dependencies
+        uses: actions/cache@v4.3.0
+        with:
+          path: dir=$(npm config get cache)
+          key: dependencies-node-mod-${{**/package.lock.json}}
 
       - name: Install all dependencies
         run: npm ci
