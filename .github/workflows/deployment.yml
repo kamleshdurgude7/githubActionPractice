@@ -10,7 +10,7 @@ jobs:
       - name: cache dependencies
         uses: actions/cache@v4.3.0
         with:
-          path: dir=$(npm config get cache)
+          path: ~/.npm
           key: dependencies-node-mod-${{hashFiles('**/package-lock.json')}}
           
 
@@ -35,7 +35,7 @@ jobs:
       - name: cache dependencies
         uses: actions/cache@v4.3.0
         with:
-          path: dir=$(npm config get cache)
+          path: ~/.npm
           key: dependencies-node-mod-${{hashFiles('**/package-lock.json')}}
 
       - name: Install all dependencies
